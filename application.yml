@@ -1,0 +1,12 @@
+midas:
+  kafka:
+    topic: midas-transactions
+
+spring:
+  kafka:
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: com.midas.core.Transaction
+      auto-offset-reset: earliest
